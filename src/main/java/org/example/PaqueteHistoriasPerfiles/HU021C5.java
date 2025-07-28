@@ -36,6 +36,11 @@ public class HU021C5 {
 
                 System.out.print("Especialidad: ");
                 personas1[i].especialidad = scanner.nextLine();
+                while (personas1[i].especialidad.equals("")) {
+                    System.out.println("No se puede dejar el espacio de Especialidad vacio");
+                    System.out.print("Ingrese la especialidad: ");
+                    personas1[i].especialidad = scanner.nextLine();
+                }
 
                 System.out.print("Biografia: ");
                 personas1[i].biografia = scanner.nextLine();
