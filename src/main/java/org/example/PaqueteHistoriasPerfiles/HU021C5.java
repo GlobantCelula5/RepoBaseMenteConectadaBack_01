@@ -57,6 +57,8 @@ public class HU021C5 {
                         personas1[i].nombre,
                         personas1[i].especialidad,
                         personas1[i].biografia);
+
+                
             }
         }
     }
