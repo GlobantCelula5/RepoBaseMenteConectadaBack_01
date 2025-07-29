@@ -7,7 +7,7 @@ public class HU023C5 {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        ArrayList<Proyecto> proyectosPortafolio = new ArrayList<>();
+        ArrayList<Proyecto1> proyectosPortafolio = new ArrayList<>();
 
         byte opcionInicial;
 
@@ -35,7 +35,7 @@ public class HU023C5 {
                 System.out.print("Ingrese la fecha del proyecto (Recomendado: dia - mes en letra - año): ");
                 String fecha = scanner.nextLine();
 
-                Proyecto nuevoProyecto = new Proyecto(nombre, descripcion, fecha);
+                Proyecto1 nuevoProyecto = new Proyecto1(nombre, descripcion, fecha);
                 proyectosPortafolio.add(nuevoProyecto);
 
                 System.out.println("¡El proyecto se ha añadido correctamente! \u001B[35m");
@@ -44,7 +44,7 @@ public class HU023C5 {
                 System.out.println("\n\u001B[34mViendo proyectos guardados: ");
 
 
-                for(Proyecto p : proyectosPortafolio){
+                for(Proyecto1 p : proyectosPortafolio){
                     System.out.println(p);
                 }
             }
@@ -53,10 +53,10 @@ public class HU023C5 {
     }
 }
 
-class Proyecto {
+class Proyecto1 {
     String nombreProyecto, descripcionProyecto, fechaProyecto;
 
-    public Proyecto(String nombreProyecto, String descripcionProyecto, String fechaProyecto) {
+    public Proyecto1(String nombreProyecto, String descripcionProyecto, String fechaProyecto) {
         this.nombreProyecto = nombreProyecto;
         this.descripcionProyecto = descripcionProyecto;
         this.fechaProyecto = fechaProyecto;
