@@ -21,6 +21,40 @@ public class HU033C5 {
         proyectosdePortafolioHU033C5.add(new ProyectoHU33C5("Apoyo Psicológico a Migrantes", "Orientación y contención emocional a familias desplazadas", "25 - Octubre - 2023"));
         proyectosdePortafolioHU033C5.add(new ProyectoHU33C5("Espacios de Resiliencia", "Actividades comunitarias para fortalecer habilidades emocionales", "10 - Noviembre - 2023"));
 
+        System.out.println("\u001B[0m");
+
+        System.out.println("\n\u001B[94m=== Lista de proyectos existentes ===");
+        for (ProyectoHU33C5 p : proyectosdePortafolioHU033C5) {
+            System.out.println(p.nombreProyecto + " | " + p.descripcionProyecto + " | " + p.fechaProyecto);
+        }
+
+        String opcionMenu;
+        do {
+            System.out.print("\n\u001B[92mIngrese nombre del proyecto o una palabra de él para buscar coincidencias: ");
+            String datoBuscar = scanner.nextLine();
+
+            boolean estaEncontrado = false;
+            for (ProyectoHU33C5 p : proyectosdePortafolioHU033C5) {
+                if (p.nombreProyecto.toLowerCase().contains(datoBuscar.toLowerCase())) {
+                    System.out.println("\u001B[36mProyecto encontrado: "
+                            + p.nombreProyecto + " | "
+                            + p.descripcionProyecto + " | "
+                            + p.fechaProyecto);
+                    estaEncontrado = true;
+                }
+            }
+
+
+            if (!estaEncontrado) {
+                System.out.println("\u001B[31mNo se encontraron coincidencias.");
+            }
+
+            System.out.print("\n\u001B[93m¿Desea realizar otra búsqueda? (s/n): ");
+            opcionMenu = scanner.nextLine();
+
+        } while (opcionMenu.equalsIgnoreCase("s"));
+
+        System.out.println("\n\u001B[31mSaliendo del buscador de proyectos...");
 
     }
 }
