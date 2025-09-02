@@ -59,7 +59,8 @@ class Proyectos {
                         "\n 5. Filtrar proyectos por año" +
                         "\n 6. Contar cuantos proyectos hay" +
                         "\n 7. Saber si hay proyectos duplicados" +
-                        "\n 8.salir");
+                        "\n 8. Eliminar todos los proyectos " +
+                        "\n 9. Salir " );
 
                 opcion = scanner.nextInt();
                 scanner.nextLine();
@@ -67,7 +68,7 @@ class Proyectos {
             } catch (InputMismatchException e) {
                 System.out.println("❌ Se ingresó un valor erróneo. Debe escribir un número.");
             }
-            while (opcion != 8) {
+            while (opcion != 9) {
                 if (opcion == 1) {
                     scanner.nextLine();
                     System.out.println("Ingrese el nombre del proyecto");
@@ -75,8 +76,18 @@ class Proyectos {
                     System.out.println("Ingrese la descripcion del proyecto");
                     String descripcion = scanner.nextLine();
                     System.out.println("Ingrese el año del proyecto");
-                    Integer anoProyecto = scanner.nextInt();
-                    proyectos.add(new Proyectos(nombre,descripcion,anoProyecto ));
+                    int nuevoano =0;
+                    boolean entradaValida =false;
+
+                    try {
+                        while (!entradaValida) {
+                            System.out.println("Ingrese el año del proyecto:");
+                            nuevoano = scanner.nextInt();
+                            entradaValida = true;}
+                    } catch (InputMismatchException e) {
+                        System.out.println("Error: El año debe ser un número entero válido.");
+                    }
+                    proyectos.add(new Proyectos(nombre,descripcion,nuevoano));
                 } else if (opcion == 2 ) {
                     scanner.nextLine();
                     System.out.println("Ingrese el nombre del proyecto que quiere editar");
@@ -167,6 +178,9 @@ class Proyectos {
                         }
                     }
 
+                } else if (opcion==8) {
+                    System.out.println("Se eliminaron todos los proyectos con exito ");
+                    proyectos.clear();
                 } else {
                     System.out.println("❌ Se ingresó un valor erróneo. Intente de nuevo.");            // Aquí podrías poner un switch(opcion) { ... }
                 }
